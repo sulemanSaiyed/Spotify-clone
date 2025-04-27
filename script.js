@@ -1,6 +1,6 @@
+let currentSong= new Audio();
 
 async function getSongs(){
-
   let a = await fetch("http://127.0.0.1:5500/songs")
   let response=await a.text();
   console.log(a)
@@ -19,11 +19,13 @@ async function getSongs(){
   return songs
   }
   const playMusic= (track)=>{
-    let audio= new Audio("/songs/"+track)
-    audio.play()
+    //let audio= new Audio("/songs/"+track)
+    currentSong.src="/songs/"+track
+    currentSong.play()
+      play.src="play.svg"
   }
    async function main(){
-    let currentSong;
+   
     // get list of all songs
   
   let songs= await getSongs()
@@ -56,5 +58,17 @@ async function getSongs(){
 
   
   })
+//attach a evrnt listener to next and previous  button
+play.addEventListener("click", ()=>{
+  if (currentSong.paused){
+    currentSong.play()
+    play.src="pause.svg"
+  }
+  else{
+    currentSong.pause()
+    play.src="play.svg"
+  }
+})
+
 }
   main()
