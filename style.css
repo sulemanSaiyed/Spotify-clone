@@ -174,7 +174,7 @@ background-color: #00FF00;
   gap: 12px;
 }
 .songList{
-  height: 544px;
+  height:544px;
   overflow:auto;
   margin-bottom: 44px ;
 }
@@ -202,11 +202,12 @@ background-color: #00FF00;
   width: 64px;
   justify-content: center;
   align-items: center;
+  gap: 6px;
 }
 .playnow span{
   font-size: 15px;
   width: 64px;
-  padding: 12px;
+  padding: 0;
 }
 .seekbar{
   height: 2px;
