@@ -57,7 +57,7 @@ async function getSongs(){
      
                 <img class="invert" src="music.svg" alt="">
                 <div class="info">
-                  <div>${song.replaceAll("%20", " ")}</div>
+                  <div>${decodeURI(song)}</div>
                   <div>Denzil</div>
                 </div>
                 <div class="playnow">

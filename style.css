@@ -158,11 +158,14 @@ background-color: #00FF00;
 
 }
 .playbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   bottom:30px ;
   filter: invert(1);
   background: #e2d9d9;
-  width: 90%;
+
   border-radius: 10px;
   width: 70vw;
   padding: 12px;
