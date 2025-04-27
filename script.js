@@ -23,6 +23,9 @@ async function getSongs(){
     currentSong.src="/songs/"+track
     currentSong.play()
       play.src="play.svg"
+      document.querySelector(".songinfo").innerHTML=track
+      document.querySelector(".songtime").innerHTML="00:00/00:00"
+
   }
    async function main(){
    
