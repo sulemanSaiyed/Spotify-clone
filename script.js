@@ -1,5 +1,5 @@
 let currentSong= new Audio();
-
+//currentSong.src=song[0]
 function secondsToMinutesSeconds(seconds) {
   if(isNaN(seconds)|| seconds<0){
     return "Invalid output";
@@ -30,12 +30,16 @@ async function getSongs(){
   
   return songs
   }
-  const playMusic= (track)=>{
+  const playMusic= (track, pause=false)=>{
     //let audio= new Audio("/songs/"+track)
     currentSong.src="/songs/"+track
-    currentSong.play()
-      play.src="play.svg"
-      document.querySelector(".songinfo").innerHTML=track
+    if(!pause){
+     currentSong.play()
+         play.src="play.svg"
+     }
+  
+  
+      document.querySelector(".songinfo").innerHTML=decodeURI(track)
       document.querySelector(".songtime").innerHTML="00:00/00:00"
 
   }
@@ -44,7 +48,7 @@ async function getSongs(){
     // get list of all songs
   
   let songs= await getSongs()
-  
+  playMusic(songs[0], true)
   //show all the songs in playlist
   let songUL=document.querySelector(".songList").getElementsByTagName("ul")[0]
   for (const song of songs) {
