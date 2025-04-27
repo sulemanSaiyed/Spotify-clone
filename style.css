@@ -210,13 +210,16 @@ background-color: #00FF00;
   padding: 0;
 }
 .seekbar{
-  height: 2px;
+  height: 4px;
   width:98%;
- 
+  background: black;
+  border-radius: 10px ;
   position: absolute;
   bottom: 0;
-  border-radius: 10px    ;
-  background: black;
+  margin: 6px;
+  cursor: pointer;
+ 
+  
 }
 .circle{
   width: 13px;
