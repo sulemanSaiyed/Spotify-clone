@@ -158,17 +158,17 @@ background-color: #00FF00;
 
 }
 .playbar{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+
   position: fixed;
   bottom:30px ;
   filter: invert(1);
   background: #e2d9d9;
-
   border-radius: 10px;
-  width: 70vw;
+  width: 90%;
   padding: 12px;
+  width: 70vw;
   height: 40px;
 }
 .songbuttons{
@@ -199,6 +199,15 @@ background-color: #00FF00;
   padding: 13px;
   border-radius: 5px;
   justify-content: space-between;
+}
+.hamburger{
+  display: none;
+}
+.hamburgerContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
 }
 .playNow{
   display: flex;
@@ -261,6 +270,9 @@ background-color: #00FF00;
 }
 .playbar{
   width: 95vw;
+}
+.hamburger{
+  display: block;
 }
 }
   
