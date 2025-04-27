@@ -72,6 +72,9 @@ play.addEventListener("click", ()=>{
     play.src="play.svg"
   }
 })
-
+// listen for time update
+currentSong.addEventListener("timeupdate", ()=>{
+  console.log(currentSong.currentTime, currentSong.duration)
+})
 }
   main()
