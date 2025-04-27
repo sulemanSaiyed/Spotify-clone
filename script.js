@@ -98,7 +98,9 @@ currentSong.addEventListener("timeupdate", ()=>{
 })
 //addan event lister to sseekbar
 document.querySelector(".seekbar").addEventListener("click",e=>{
-  document.querySelector(".circle").style.left=(e.offsetX/e.target.getBoundingClientRect().width)*100+"%";
+ let percent= (e.offsetX/e.target.getBoundingClientRect().width)*100;
+  document.querySelector(".circle").style.left=percent+"%";
+  currentSong.currentTime=((currentSong.duration)*percent)/100
 })
 }
   main()
