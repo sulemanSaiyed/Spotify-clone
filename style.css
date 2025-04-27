@@ -211,11 +211,12 @@ background-color: #00FF00;
 }
 .seekbar{
   height: 2px;
-  width:100%;
-  border: 2px solid black;
+  width:98%;
+ 
   position: absolute;
   bottom: 0;
   border-radius: 10px    ;
+  background: black;
 }
 .circle{
   width: 13px;
@@ -225,4 +226,5 @@ background-color: #00FF00;
   position: relative;
   bottom: 6px;
   left: 0%;
+  transition: left 0.5s;
 }

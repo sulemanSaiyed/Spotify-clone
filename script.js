@@ -18,7 +18,12 @@ async function getSongs(){
   
   return songs
   }
+  const playMusic= (track)=>{
+    let audio= new Audio("/songs/"+track)
+    audio.play()
+  }
    async function main(){
+    let currentSong;
     // get list of all songs
   
   let songs= await getSongs()
@@ -41,17 +46,15 @@ async function getSongs(){
                 <img class="invert" src="play.svg" alt="">
               </div></li>`;
   }
-  // play the fst song
-  var audio = new Audio(songs[0]);
-  audio.play();
+
+  //attach a evrnt listener to each song
+  Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
+    e.addEventListener("click",element=>{
+   console.log (e.querySelector(".info").firstElementChild.innerHTML)
+   playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+  })
+
   
-  
-  audio.addEventListener("loadeddata", () => {
-    let duration = audioElement.duration;
-    console.log(audio.duration, audio.currentSrc, audio.currentTime)
-    // The duration variable now holds the duration (in seconds) of the audio clip
-  });
-  
-  
-  }
+  })
+}
   main()
