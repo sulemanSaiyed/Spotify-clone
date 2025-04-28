@@ -271,6 +271,9 @@ background-color: #00FF00;
   width: 373px;
   background-color: black;
 }
+.songinfo, .songtime{
+  width: auto;
+}
 .left .close{
   position: absolute;
   right: 31px;
