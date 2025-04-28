@@ -72,7 +72,7 @@ songs= await getSongs()
   //attach a evrnt listener to each song
   Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
     e.addEventListener("click",element=>{
-   console.log (e.querySelector(".info").firstElementChild.innerHTML)
+   
    playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
   })
 
@@ -134,7 +134,7 @@ document.querySelector(".close").addEventListener("click",()=>{
   })
   // add an event to volume
   document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
-    console.log(e, e.target, e.target.value)
+    console.log("setting vol to", e.target.value, "/100")
     currentSong.volume=parseInt(e.target.value)/100
   })
 }
