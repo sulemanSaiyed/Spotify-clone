@@ -253,6 +253,7 @@ background-color: #00FF00;
 .songinfo, .songtime{
   color: black;
   padding: 0 12px;
+  width: 250px;
 
 }
 .abovebar{

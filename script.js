@@ -3,7 +3,7 @@ let currentSong= new Audio();
 let songs;
 function secondsToMinutesSeconds(seconds) {
   if(isNaN(seconds)|| seconds<0){
-    return "Invalid output";
+    return "00:00";
   }
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds =  Math.floor(seconds % 60);
