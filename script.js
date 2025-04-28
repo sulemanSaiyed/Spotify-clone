@@ -1,5 +1,6 @@
 let currentSong= new Audio();
 //currentSong.src=song[0]
+let songs;
 function secondsToMinutesSeconds(seconds) {
   if(isNaN(seconds)|| seconds<0){
     return "Invalid output";
@@ -47,7 +48,7 @@ async function getSongs(){
    
     // get list of all songs
   
-  let songs= await getSongs()
+songs= await getSongs()
   playMusic(songs[0], true)
   //show all the songs in playlist
   let songUL=document.querySelector(".songList").getElementsByTagName("ul")[0]
@@ -111,6 +112,25 @@ document.querySelector(".left").style.left="0";
 // add event listern for close button
 document.querySelector(".close").addEventListener("click",()=>{
   document.querySelector(".left").style.left="-120%";
+  })
+
+  // add event lister to previpus 
+  previous.addEventListener("click", ()=>{
+    console.log("Previous click")
+    let index=songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+    if((index-1)>=0){
+     playMusic(songs[index-1])
+    }
+  })
+
+   // add event lister to next
+  next.addEventListener("click", ()=>{
+    console.log("next click")
+    let index=songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+ if((index+1)>length){
+  playMusic(songs[index+1])
+ }
+  
   })
 }
   main()
