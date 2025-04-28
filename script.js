@@ -23,7 +23,7 @@ async function getSongs(folder){
   div.innerHTML=response;
   let as=div.getElementsByTagName("a")
   
-  let songs=[]
+  songs=[]
   for(let index=0; index<as.length ;index++){
     const element= as[index];
     if(element.href.endsWith(".mp3")){
@@ -31,7 +31,35 @@ async function getSongs(folder){
     }
   }
   
-  return songs
+ //show all the songs in playlist
+ let songUL=document.querySelector(".songList").getElementsByTagName("ul")[0]
+ songUL.innerHTML=""
+ for (const song of songs) {
+   songUL.innerHTML=songUL.innerHTML+`<li>
+   
+    
+               <img class="invert" src="music.svg" alt="">
+               <div class="info">
+                 <div>${decodeURI(song)}</div>
+                 <div>Denzil</div>
+               </div>
+               <div class="playnow">
+                 <span>
+                   Play Now
+                 </span>
+               <img class="invert" src="play.svg" alt="">
+             </div></li>`;
+ }
+
+ //attach a evrnt listener to each song
+ Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
+   e.addEventListener("click",element=>{
+  
+  playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+ })
+
+ 
+ })
   }
   const playMusic= (track, pause=false)=>{
     //let audio= new Audio("/songs/"+track)
@@ -45,41 +73,16 @@ async function getSongs(folder){
       document.querySelector(".songinfo").innerHTML=decodeURI(track)
       document.querySelector(".songtime").innerHTML="00:00/00:00"
 
+        
+
+
   }
    async function main(){
    
     // get list of all songs
-  
-songs= await getSongs("songs/ncs")
+ await getSongs("songs/ncs")
   playMusic(songs[0], true)
-  //show all the songs in playlist
-  let songUL=document.querySelector(".songList").getElementsByTagName("ul")[0]
-  for (const song of songs) {
-    songUL.innerHTML=songUL.innerHTML+`<li>
-    
-     
-                <img class="invert" src="music.svg" alt="">
-                <div class="info">
-                  <div>${decodeURI(song)}</div>
-                  <div>Denzil</div>
-                </div>
-                <div class="playnow">
-                  <span>
-                    Play Now
-                  </span>
-                <img class="invert" src="play.svg" alt="">
-              </div></li>`;
-  }
 
-  //attach a evrnt listener to each song
-  Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
-    e.addEventListener("click",element=>{
-   
-   playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
-  })
-
-  
-  })
 //attach a evrnt listener to next and previous  button
 play.addEventListener("click", ()=>{
   if (currentSong.paused){
@@ -138,6 +141,14 @@ document.querySelector(".close").addEventListener("click",()=>{
   document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
     console.log("setting vol to", e.target.value, "/100")
     currentSong.volume=parseInt(e.target.value)/100
+  })
+
+  // load the playlist wheneve the crad is clicked
+  Array.from(document.getElementsByClassName("card")).forEach(e=>{
+    e.addEventListener("click", async item=>{
+      songs=await getSongs(`songs/${ item.currentTarget.dataset.folder}`)
+     
+    })
   })
 }
   main()
