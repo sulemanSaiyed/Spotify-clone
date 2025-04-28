@@ -258,12 +258,13 @@ background-color: #00FF00;
 }
 @media (max-width: 1400px){
 .left{
-  background-color: red;
+
   position: absolute;
   left: -100%;
   transition: all 0.3s;
   z-index: 1;
-  width: 230px;
+  width: 433px;
+  background-color: black;
 }
 .right{
   width: 100vw;
