@@ -191,6 +191,9 @@ background-color: #00FF00;
   font-size: 13px;
   width: 344px;
 }
+.info div{
+  word-break: break-all;
+}
 .songList ul li{
   list-style-type:decimal ;
   display: flex;
