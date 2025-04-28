@@ -127,7 +127,7 @@ document.querySelector(".close").addEventListener("click",()=>{
   next.addEventListener("click", ()=>{
     console.log("next click")
     let index=songs.indexOf(currentSong.src.split("/").slice(-1)[0])
- if((index+1)>length){
+ if((index+1)<songs.length){
   playMusic(songs[index+1])
  }
   
