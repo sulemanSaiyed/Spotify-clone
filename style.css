@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+:root{
+  --a:0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -115,12 +117,17 @@ body {
   padding: 10px;
   border-radius: 5px;
   background-color: #252525;
+  transition: all .9s;
 }
 
 .card>* {
   padding-top: 10px;
 }
-
+.card:hover{
+  background-color: rgb(105, 103, 103);
+  cursor: pointer;
+  --a: 1;
+}
 .card img {
   width: 100%;
   object-fit: contain;
@@ -140,7 +147,7 @@ body {
   position: absolute;
   top: 337px;
   right: 552px;
-  opacity: 0;
+  opacity: var(--a);
   transition: all 1s ease-out;
 }
 
@@ -306,7 +313,7 @@ body {
 }
 
 .volume:hover::after {
-  content: "hbhb";
+  content: "";
 }
 
 .volume {
