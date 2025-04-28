@@ -266,6 +266,12 @@ background-color: #00FF00;
   width: 433px;
   background-color: black;
 }
+.left .close{
+  position: absolute;
+  right: 31px;
+  top: 25px;
+  width: 29px;
+}
 .right{
   width: 100vw;
 }
