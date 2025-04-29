@@ -77,12 +77,28 @@ async function getSongs(folder){
 
 
   }
+  async function displayAlbums(){
+    let a = await fetch(`http://127.0.0.1:5500/songs/`)
+    let response=await a.text();
+
+    let div = document.createElement("div")
+    div.innerHTML=response;
+    let anchors=div.getElementsByTagName("a")
+    Array.from(anchors).forEach(e=>{
+      if(e.href.includes("/songs")){
+        console.log(e.href.split("/").slice(-2)[0])
+
+      }
+    })
+  }
    async function main(){
    
     // get list of all songs
  await getSongs("songs/ncs")
   playMusic(songs[0], true)
 
+  //display all the album on the page
+  displayAlbums()
 //attach a evrnt listener to next and previous  button
 play.addEventListener("click", ()=>{
   if (currentSong.paused){
