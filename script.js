@@ -84,10 +84,14 @@ async function getSongs(folder){
     let div = document.createElement("div")
     div.innerHTML=response;
     let anchors=div.getElementsByTagName("a")
-    Array.from(anchors).forEach(e=>{
+    Array.from(anchors).forEach(async e=>{
       if(e.href.includes("/songs")){
-        console.log(e.href.split("/").slice(-2)[0])
+       let folder=e.href.split("/").slice(-2)[0]
+// get the mets data of folder
 
+let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
+    let response=await a.json();
+    console.log(response)
       }
     })
   }
